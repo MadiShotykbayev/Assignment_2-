@@ -88,7 +88,8 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public T get(int index) {
-        return null;
+        checkIndex(index);
+        return(T) arr[index];
     }
 
     @Override
