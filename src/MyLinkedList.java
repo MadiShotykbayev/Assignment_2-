@@ -95,6 +95,60 @@ public class MyLinkedList<T> implements MyList<T> {
         }
         return false;
     }
+    @Override
+    public T remove(int index) {
+        if (index < 0  index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        Node current;
+
+        if (index == 0) {
+            current = head;
+            head = current.nxt;
+            if (head != null) {
+                head.pre = null;
+            } else {
+                tail = null;
+            }
+        } else if (index == size - 1) {
+            current = tail;
+            tail = current.pre;
+            if (tail != null) {
+                tail.nxt = null;
+            } else {
+                head = null;
+            }
+        } else {
+            if (index < size / 2) {
+                current = head;
+                int count = 0;
+                while (count < index) {
+                    current = current.nxt;
+                    count++;
+                }
+            } else {
+                current = tail;
+                int count = size - 1;
+                while (count > index) {
+                    current = current.pre;
+                    count--;
+                }
+            }
+            current.pre.nxt = current.nxt;
+            current.nxt.prev = current.pre;
+        }
+
+        size--;
+        return (T) current.elem;
+    }
+    @Override
+    public void clear() {
+        head = null;
+        tail = null;
+        size = 0;
+    }
+
 
 
 
