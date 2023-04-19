@@ -116,15 +116,15 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public void sort() {
-        boolean swap = true;
-        while (swap) {
-            swap = false;
+        boolean swapped = true;
+        while (swapped) {
+            swapped = false;
             for (int i = 1; i < size; i++) {
                 if (((Comparable) arr[i-1]).compareTo(arr[i]) > 0) {
-                    Object temp = arr[i-1];
+                    Object t = arr[i-1];
                     arr[i-1] = arr[i];
-                    arr[i] = (T) temp;
-                    swap = true;
+                    arr[i] = (T) t;
+                    swapped = true;
                 }
             }
         }
