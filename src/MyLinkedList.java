@@ -22,3 +22,8 @@ public class MyLinkedList<T> implements MyList<T> {
     public int size() {
         return size;
     }
+    @Override
+    public boolean contains(Object o) {
+        return indexOf(o) != -1;
+    }
+
