@@ -136,7 +136,7 @@ public class MyLinkedList<T> implements MyList<T> {
                 }
             }
             current.pre.nxt = current.nxt;
-            current.nxt.prev = current.pre;
+            current.nxt.pre = current.pre;
         }
 
         size--;
@@ -187,6 +187,21 @@ public class MyLinkedList<T> implements MyList<T> {
         }
         return -1;
     }
+    @Override
+    public int lastIndexOf(Object o) {
+        Node curr = tail;
+        int index = size - 1;
+        while (curr != null) {
+            if (curr.elem.equals(o)) {
+                return index;
+            }
+            curr = curr.pre;
+            index--;
+        }
+        return -1;
+    }
+
+
 
 
 
