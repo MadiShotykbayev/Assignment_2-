@@ -148,6 +148,34 @@ public class MyLinkedList<T> implements MyList<T> {
         tail = null;
         size = 0;
     }
+    @Override
+    public T get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        Node current;
+        int count;
+        if (index < size / 2) {
+            current = head;
+            count = 0;
+            while (count < index) {
+                current = current.nxt;
+                count++;
+            }
+        } else {
+            current = tail;
+            count = size - 1;
+            while (count > index) {
+                current = current.pre;
+                count--;
+            }
+        }
+
+        return (T) current.elem;
+    }
+
+
 
 
 
