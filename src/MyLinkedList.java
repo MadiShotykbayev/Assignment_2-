@@ -174,6 +174,21 @@ public class MyLinkedList<T> implements MyList<T> {
 
         return (T) current.elem;
     }
+    @Override
+    public int indexOf(Object o) {
+        Node curr = head;
+        int index = 0;
+        while (curr != null) {
+            if (curr.elem.equals(o)) {
+                return index;
+            }
+            curr = curr.nxt;
+            index++;
+        }
+        return -1;
+    }
+
+
 
 
 
