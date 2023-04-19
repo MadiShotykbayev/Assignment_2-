@@ -26,4 +26,19 @@ public class MyLinkedList<T> implements MyList<T> {
     public boolean contains(Object o) {
         return indexOf(o) != -1;
     }
+    @Override
+    public void add(T element) {
+        Node node = new Node(element);
+        if(head == null){
+            head = node;
+            tail = node;
+        }
+        else{
+            tail.nxt = node;
+            node.pre = tail;
+            tail = node;
+        }
+        size++;
+    }
+
 
